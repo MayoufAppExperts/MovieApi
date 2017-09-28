@@ -15,21 +15,21 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-/**
- * Created by TheAppExperts on 28/09/2017.
- */
 
-class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.MovieViewHolder>{
+class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     List<Result> playerInfo;
     int row;
     Context applicationContext;
     public static final String PHOTO_URL = "https://image.tmdb.org/t/p/w1280";
+    private final OnItemClickListener listener;
 
-    public MovieAdapter(List<Result> playerInfo, int row, Context applicationContext) {
+
+    public MovieAdapter(List<Result> playerInfo, int row, Context applicationContext, OnItemClickListener listener) {
         this.playerInfo = playerInfo;
-        this.row=row;
+        this.row = row;
         this.applicationContext = applicationContext;
+        this.listener = listener;
     }
 
     @Override
@@ -47,10 +47,12 @@ class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.MovieViewHolder>{
         holder.tvRating.setText(playerInfo.get(position).getVoteAverage().toString());
 
         Picasso.with(applicationContext)
-                .load(PHOTO_URL+playerInfo.get(position).getPosterPath())
+                .load(PHOTO_URL + playerInfo.get(position).getPosterPath())
                 .resize(200, 200)
                 .centerCrop()
                 .into(holder.imgMovie);
+
+        holder.bind(playerInfo.get(position), listener);
     }
 
     @Override
@@ -58,20 +60,30 @@ class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.MovieViewHolder>{
         return playerInfo.size();
     }
 
-    public class MovieViewHolder extends RecyclerView.ViewHolder{
+    public class MovieViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle, tvSubtitle, tvDescription, tvRating;
         ImageView imgMovie;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
 
-            tvTitle = (TextView)itemView.findViewById(R.id.title);
-            tvSubtitle = (TextView)itemView.findViewById(R.id.subtitle);
-            tvDescription=(TextView)itemView.findViewById(R.id.description);
+            tvTitle = (TextView) itemView.findViewById(R.id.title);
+            tvSubtitle = (TextView) itemView.findViewById(R.id.subtitle);
+            tvDescription = (TextView) itemView.findViewById(R.id.description);
             tvRating = (TextView) itemView.findViewById(R.id.rating);
             imgMovie = (ImageView) itemView.findViewById(R.id.imageView);
 
 
+        }
+
+        public void bind(Result result, OnItemClickListener listener) {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onItemClick(result);
+
+                }
+            });
         }
     }
 }

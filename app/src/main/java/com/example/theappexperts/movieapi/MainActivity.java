@@ -1,5 +1,6 @@
 package com.example.theappexperts.movieapi;
 
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.theappexperts.movieapi.pojo.PlayerInfo;
 import com.example.theappexperts.movieapi.pojo.Result;
 import com.example.theappexperts.movieapi.services.ConnectionService;
+import com.example.theappexperts.movieapi.services.OnItemClickListener;
 import com.example.theappexperts.movieapi.services.reqInterface;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -48,7 +50,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSuccess(PlayerInfo playerInfo) {
         Log.i("CakeList", String.valueOf(playerInfo.getResults()));
-        recyclerView.setAdapter(new MovieAdapter(playerInfo.getResults(), R.layout.list_item_movie, getApplicationContext()));
+        recyclerView.setAdapter(new MovieAdapter(playerInfo.getResults(), R.layout.list_item_movie, getApplicationContext(), new OnItemClickListener() {
+            @Override
+            public void onItemClick(Result result) {
+                Log.i("Check", "onitemclick working");
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class)
+                        .putExtra("id", result.getId());
+                startActivity(intent);
+                toast.makeText(getApplicationContext(), "Item Clicked", Toast.LENGTH_LONG).show();
+            }
+        }));
     }
 
     public void initialiseRecyclerView() {
