@@ -1,6 +1,7 @@
 package com.example.theappexperts.movieapi.services;
 
 
+import com.example.theappexperts.movieapi.movieDetails.MoviesResponse;
 import com.example.theappexperts.movieapi.pojo.PlayerInfo;
 import com.example.theappexperts.movieapi.pojo.Result;
 
@@ -17,5 +18,5 @@ public interface reqInterface {
 
     @GET("movie/top_rated")
     Observable<PlayerInfo> getMoviesList(@Query("api_key")String apiKey);
-    //Observable<MoviesResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
+    Observable<MoviesResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
 }

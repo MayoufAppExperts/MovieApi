@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.theappexperts.movieapi.pojo.PlayerInfo;
 import com.example.theappexperts.movieapi.pojo.Result;
+import com.example.theappexperts.movieapi.services.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -30,8 +31,6 @@ class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.MovieViewHolder>{
         this.row=row;
         this.applicationContext = applicationContext;
     }
-
-
 
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -71,6 +70,8 @@ class MovieAdapter extends RecyclerView.Adapter <MovieAdapter.MovieViewHolder>{
             tvDescription=(TextView)itemView.findViewById(R.id.description);
             tvRating = (TextView) itemView.findViewById(R.id.rating);
             imgMovie = (ImageView) itemView.findViewById(R.id.imageView);
+
+
         }
     }
 }
