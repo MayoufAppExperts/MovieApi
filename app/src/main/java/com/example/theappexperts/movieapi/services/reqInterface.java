@@ -18,5 +18,7 @@ public interface reqInterface {
 
     @GET("movie/top_rated")
     Observable<PlayerInfo> getMoviesList(@Query("api_key")String apiKey);
+    //http://api.themoviedb.org/3/movie/550?api_key=7e8f60e325cd06e164799af1e317d7a7
+    @GET("movie/{id}")
     Observable<MoviesResponse> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
 }
