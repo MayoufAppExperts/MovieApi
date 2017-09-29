@@ -1,4 +1,4 @@
-package com.example.theappexperts.movieapi.services;
+package com.example.theappexperts.movieapi.network.service;
 
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 

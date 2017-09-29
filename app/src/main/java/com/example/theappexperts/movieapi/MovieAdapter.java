@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.theappexperts.movieapi.pojo.PlayerInfo;
-import com.example.theappexperts.movieapi.pojo.Result;
-import com.example.theappexperts.movieapi.services.OnItemClickListener;
+import com.example.theappexperts.movieapi.network.model.Result;
+import com.example.theappexperts.movieapi.network.service.OnItemClickListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

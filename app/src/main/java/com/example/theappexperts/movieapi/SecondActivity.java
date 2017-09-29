@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.theappexperts.movieapi.movieDetails.MoviesResponse;
-import com.example.theappexperts.movieapi.pojo.PlayerInfo;
-import com.example.theappexperts.movieapi.services.ConnectionService;
-import com.example.theappexperts.movieapi.services.reqInterface;
+import com.example.theappexperts.movieapi.network.model.MoviesResponse;
+import com.example.theappexperts.movieapi.network.model.API_Constants;
+import com.example.theappexperts.movieapi.network.service.ConnectionService;
+import com.example.theappexperts.movieapi.network.service.reqInterface;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;

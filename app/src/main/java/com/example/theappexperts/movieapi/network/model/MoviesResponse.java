@@ -1,4 +1,4 @@
-package com.example.theappexperts.movieapi.movieDetails;
+package com.example.theappexperts.movieapi.network.model;
 
 
 import java.util.List;

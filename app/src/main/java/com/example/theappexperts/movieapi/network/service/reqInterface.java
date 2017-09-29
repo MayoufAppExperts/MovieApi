@@ -1,9 +1,8 @@
-package com.example.theappexperts.movieapi.services;
+package com.example.theappexperts.movieapi.network.service;
 
 
-import com.example.theappexperts.movieapi.movieDetails.MoviesResponse;
-import com.example.theappexperts.movieapi.pojo.PlayerInfo;
-import com.example.theappexperts.movieapi.pojo.Result;
+import com.example.theappexperts.movieapi.network.model.MoviesResponse;
+import com.example.theappexperts.movieapi.network.model.PlayerInfo;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

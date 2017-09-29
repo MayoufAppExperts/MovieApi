@@ -1,4 +1,4 @@
-package com.example.theappexperts.movieapi.pojo;
+package com.example.theappexperts.movieapi.network.model;
 
 /**
  * Created by TheAppExperts on 28/09/2017.

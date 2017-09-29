@@ -1,6 +1,6 @@
-package com.example.theappexperts.movieapi.services;
+package com.example.theappexperts.movieapi.network.service;
 
-import com.example.theappexperts.movieapi.API_Constants;
+import com.example.theappexperts.movieapi.network.model.API_Constants;
 import com.example.theappexperts.movieapi.MyApp;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 

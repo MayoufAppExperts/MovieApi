@@ -1,4 +1,4 @@
-package com.example.theappexperts.movieapi;
+package com.example.theappexperts.movieapi.network.model;
 
 import retrofit2.http.GET;
 
