@@ -37,10 +37,8 @@ public class ConnectionService {
     public static OkHttpClient buildClient() {
 //
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        //  builder.addNetworkInterceptor(new ResponseCacheInterceptor());
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-
         builder.addInterceptor(interceptor).build();
         // Enable response caching
         builder.addNetworkInterceptor(new Offline_CacheData.ResponseCacheInterceptor());

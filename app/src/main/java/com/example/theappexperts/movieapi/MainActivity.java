@@ -15,6 +15,9 @@ import com.example.theappexperts.movieapi.ui.movieList.MovieListPresenter;
 import com.example.theappexperts.movieapi.ui.movieList.iMovieListMvpView;
 import com.example.theappexperts.movieapi.ui.utils.rx.AppSchedulerProvider;
 
+import java.util.List;
+
+import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 
 public class MainActivity extends AppCompatActivity implements iMovieListMvpView {
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements iMovieListMvpView
         iMovieListMvpViewMovieListPresenter.onAttach(this);
         iMovieListMvpViewMovieListPresenter.onViewPrepared();
 
+
     }
 
     public void initialiseRecyclerView() {
@@ -49,8 +53,23 @@ public class MainActivity extends AppCompatActivity implements iMovieListMvpView
 
     @Override
     public void onFetchDataCompleted(PlayerInfo playerInfo) {
-        Log.i("MovieList", String.valueOf(playerInfo.getResults()));
-        recyclerView.setAdapter(new MovieAdapter(playerInfo.getResults(), R.layout.list_item_movie, getApplicationContext(), new OnItemClickListener() {
+//        //Log.i("MovieList", String.valueOf(playerInfo.getResults()));
+//        recyclerView.setAdapter(new MovieAdapter(playerInfo.getResults(), R.layout.list_item_movie, getApplicationContext(), new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(Result result) {
+//                Log.i("Check", "onitemclick working");
+//                Intent intent = new Intent(MainActivity.this, SecondActivity.class)
+//                        .putExtra("id", result.getId());
+//                startActivity(intent);
+//                toast.makeText(getApplicationContext(), "Item Clicked", Toast.LENGTH_LONG).show();
+//            }
+//        }));
+
+    }
+
+    @Override
+    public void onFilterView(List<Result> results) {
+        recyclerView.setAdapter(new MovieAdapter(results, R.layout.list_item_movie, getApplicationContext(), new OnItemClickListener() {
             @Override
             public void onItemClick(Result result) {
                 Log.i("Check", "onitemclick working");
@@ -60,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements iMovieListMvpView
                 toast.makeText(getApplicationContext(), "Item Clicked", Toast.LENGTH_LONG).show();
             }
         }));
-
     }
 
     @Override
